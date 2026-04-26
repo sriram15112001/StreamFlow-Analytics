@@ -51,4 +51,12 @@ public class StreamBeginner {
                 .limit(10)
                 .toList();
     }
+
+    public List<String> getRandom2Category() {
+        return salesInfoList.stream()
+                .map(SalesInfo::getCategory)
+                .limit(2)
+                .distinct().toList();
+
+    }
 }

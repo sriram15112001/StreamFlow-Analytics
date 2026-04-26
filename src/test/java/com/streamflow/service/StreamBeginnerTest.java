@@ -80,4 +80,19 @@ public class StreamBeginnerTest {
         assertEquals(top10Sales1, top10Sales);
 
     }
+
+    @Test
+    public void getRandom2Category() {
+        List<String> random2Category = new ArrayList<>();
+        int count = 0;
+        for (SalesInfo s: salesInfoList) {
+            if (!random2Category.contains(s)) {
+                random2Category.add(s.getCategory());
+                count++;
+            }
+            if(count >= 2) break;
+        }
+        List<String> random2Category1 = streamBeginner.getRandom2Category();
+        assertEquals(random2Category1, random2Category);
+    }
 }
