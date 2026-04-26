@@ -16,4 +16,10 @@ public class StreamBeginner {
     public long getSalesCount() {
         return salesInfoList.stream().count();
     }
+
+    public long salesGreaterThan500() {
+        return salesInfoList.stream()
+                .filter(salesInfo -> salesInfo.getAmount() > 500)
+                .count();
+    }
 }

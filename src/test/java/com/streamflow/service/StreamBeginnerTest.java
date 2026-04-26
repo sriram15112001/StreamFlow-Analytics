@@ -23,4 +23,9 @@ public class StreamBeginnerTest {
     public void countTest() {
         assertEquals(streamBeginner.getSalesCount(), 10000L);
     }
+
+    @Test
+    public void countAmountGreaterThan500() {
+        assertEquals(streamBeginner.salesGreaterThan500(), 9072);
+    }
 }
