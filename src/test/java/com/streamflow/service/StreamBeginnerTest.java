@@ -95,4 +95,9 @@ public class StreamBeginnerTest {
         List<String> random2Category1 = streamBeginner.getRandom2Category();
         assertEquals(random2Category1, random2Category);
     }
+
+    @Test
+    public void exploreCreatingStreams() {
+        streamBeginner.exploreCreatingStreams();
+    }
 }

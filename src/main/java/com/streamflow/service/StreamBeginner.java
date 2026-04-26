@@ -3,7 +3,9 @@ package com.streamflow.service;
 import com.streamflow.commons.Constants;
 import com.streamflow.model.SalesInfo;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 
 public class StreamBeginner {
 
@@ -58,5 +60,15 @@ public class StreamBeginner {
                 .limit(2)
                 .distinct().toList();
 
+    }
+
+    public void exploreCreatingStreams() {
+        List<Integer> integers = List.of(1, 2, 3, 4, 5);
+        Set<Integer> integers1 = Set.of(1, 3, 5, 7, 9);
+        int[] values = {10, 11, 12, 13, 14};
+
+        integers.stream().forEach(System.out::println);
+        integers1.stream().forEach(System.out::println);
+        Arrays.stream(values).forEach(System.out::println);
     }
 }
