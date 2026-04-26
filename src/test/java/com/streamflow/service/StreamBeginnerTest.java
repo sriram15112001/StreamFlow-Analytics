@@ -5,6 +5,7 @@ import com.streamflow.model.SalesInfo;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -27,5 +28,15 @@ public class StreamBeginnerTest {
     @Test
     public void countAmountGreaterThan500() {
         assertEquals(streamBeginner.salesGreaterThan500(), 9072);
+    }
+
+    @Test
+    public void extractProductName() {
+        List<String> products = new ArrayList<>();
+        for(SalesInfo s: salesInfoList) {
+            products.add(s.getProduct());
+        }
+        List<String> strings = streamBeginner.extractProductNames();
+        assertEquals(products, strings);
     }
 }

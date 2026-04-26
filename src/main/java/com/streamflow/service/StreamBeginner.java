@@ -22,4 +22,10 @@ public class StreamBeginner {
                 .filter(salesInfo -> salesInfo.getAmount() > 500)
                 .count();
     }
+
+    public List<String> extractProductNames() {
+        return salesInfoList.stream()
+                .map(SalesInfo::getProduct)
+                .toList();
+    }
 }
