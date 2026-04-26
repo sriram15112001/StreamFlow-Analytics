@@ -3,6 +3,7 @@ package com.streamflow.model;
 import com.streamflow.enums.Status;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class SalesInfo {
     private int salesId;
@@ -138,5 +139,17 @@ public class SalesInfo {
         sb.append(", status=").append(status);
         sb.append('}');
         return sb.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        SalesInfo salesInfo = (SalesInfo) o;
+        return salesId == salesInfo.salesId && quantity == salesInfo.quantity && Double.compare(unitPrice, salesInfo.unitPrice) == 0 && Double.compare(amount, salesInfo.amount) == 0 && Objects.equals(customerId, salesInfo.customerId) && Objects.equals(customerName, salesInfo.customerName) && Objects.equals(category, salesInfo.category) && Objects.equals(product, salesInfo.product) && Objects.equals(saleDate, salesInfo.saleDate) && Objects.equals(region, salesInfo.region) && status == salesInfo.status;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(salesId, customerId, customerName, category, product, quantity, unitPrice, amount, saleDate, region, status);
     }
 }

@@ -44,4 +44,11 @@ public class StreamBeginner {
                 .map(SalesInfo::getCustomerId)
                 .toList();
     }
+
+    public List<SalesInfo> getTop10Sales() {
+        return salesInfoList.stream()
+                .sorted((a, b) -> Double.compare(b.getAmount(), a.getAmount()))
+                .limit(10)
+                .toList();
+    }
 }

@@ -68,4 +68,16 @@ public class StreamBeginnerTest {
         List<String> customerIds = streamBeginner.first5ElectronicsCustomerIdsWithHigherAmount();
         assertEquals(customerIds, top5ElectronicsCustId);
     }
+
+    @Test
+    public void getTop10Sales() {
+        List<SalesInfo> top10Sales = new ArrayList<>();
+        salesInfoList.sort((a, b) -> Double.compare(b.getAmount(), a.getAmount()));
+        for (int i = 0; i < 10; i++) {
+            top10Sales.add(salesInfoList.get(i));
+        }
+        List<SalesInfo> top10Sales1 = streamBeginner.getTop10Sales();
+        assertEquals(top10Sales1, top10Sales);
+
+    }
 }
