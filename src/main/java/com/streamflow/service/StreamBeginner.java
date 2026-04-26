@@ -35,4 +35,13 @@ public class StreamBeginner {
                 .map(SalesInfo::getCustomerId)
                 .toList();
     }
+
+    public List<String> first5ElectronicsCustomerIdsWithHigherAmount() {
+        return salesInfoList.stream()
+                .filter(salesInfo -> salesInfo.getCategory().equalsIgnoreCase("Electronics"))
+                .sorted((a, b) -> Double.compare(b.getAmount(), a.getAmount()))
+                .limit(5)
+                .map(SalesInfo::getCustomerId)
+                .toList();
+    }
 }

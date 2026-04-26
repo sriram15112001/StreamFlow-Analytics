@@ -121,4 +121,22 @@ public class SalesInfo {
     public void setStatus(Status status) {
         this.status = status;
     }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("SalesInfo{");
+        sb.append("salesId=").append(salesId);
+        sb.append(", customerId='").append(customerId).append('\'');
+        sb.append(", customerName='").append(customerName).append('\'');
+        sb.append(", category='").append(category).append('\'');
+        sb.append(", product='").append(product).append('\'');
+        sb.append(", quantity=").append(quantity);
+        sb.append(", unitPrice=").append(unitPrice);
+        sb.append(", amount=").append(amount);
+        sb.append(", saleDate=").append(saleDate);
+        sb.append(", region='").append(region).append('\'');
+        sb.append(", status=").append(status);
+        sb.append('}');
+        return sb.toString();
+    }
 }

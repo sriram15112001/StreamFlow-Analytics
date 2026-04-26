@@ -51,4 +51,21 @@ public class StreamBeginnerTest {
         List<String> strings = streamBeginner.extractElectronicsCustomerIds();
         assertEquals(strings, electronicsCustomerId);
     }
+
+    @Test
+    public void first5ElectronicsCustomerIdsWithHigherAmount() {
+        List<SalesInfo> electronicsCustomer = new ArrayList<>();
+        for (SalesInfo s: salesInfoList) {
+            if (s.getCategory().equalsIgnoreCase("Electronics")) {
+                electronicsCustomer.add(s);
+            }
+        }
+        electronicsCustomer.sort((a, b) -> Double.compare(b.getAmount(), a.getAmount()));
+        List<String> top5ElectronicsCustId = new ArrayList<>();
+        for(int i = 0; i < 5; i++) {
+            top5ElectronicsCustId.add(electronicsCustomer.get(i).getCustomerId());
+        }
+        List<String> customerIds = streamBeginner.first5ElectronicsCustomerIdsWithHigherAmount();
+        assertEquals(customerIds, top5ElectronicsCustId);
+    }
 }
