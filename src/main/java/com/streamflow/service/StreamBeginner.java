@@ -1,0 +1,19 @@
+package com.streamflow.service;
+
+import com.streamflow.commons.Constants;
+import com.streamflow.model.SalesInfo;
+
+import java.util.List;
+
+public class StreamBeginner {
+
+    private List<SalesInfo> salesInfoList;
+
+    public StreamBeginner() {
+        this.salesInfoList = new ReadWithBufferedReader().readData(Constants.DATA_PATH);
+    }
+
+    public long getSalesCount() {
+        return salesInfoList.stream().count();
+    }
+}

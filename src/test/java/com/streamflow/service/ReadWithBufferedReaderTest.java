@@ -1,5 +1,6 @@
 package com.streamflow.service;
 
+import com.streamflow.commons.Constants;
 import com.streamflow.model.SalesInfo;
 import org.junit.jupiter.api.Test;
 
@@ -12,7 +13,7 @@ public class ReadWithBufferedReaderTest {
     @Test
     public void readData() {
         ReadWithBufferedReader reader = new ReadWithBufferedReader();
-        List<SalesInfo> salesInfos = reader.readData("src/main/resources/sales_data.csv");
+        List<SalesInfo> salesInfos = reader.readData(Constants.DATA_PATH);
         assertEquals(salesInfos.size(), 10000);
     }
 }

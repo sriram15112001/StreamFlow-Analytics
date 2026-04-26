@@ -1,5 +1,6 @@
 package com.streamflow;
 
+import com.streamflow.commons.Constants;
 import com.streamflow.model.SalesInfo;
 import com.streamflow.service.ReadWithBufferedReader;
 
@@ -14,7 +15,7 @@ public class App
     public static void main( String[] args )
     {
         ReadWithBufferedReader readWithBufferedReader = new ReadWithBufferedReader();
-        List<SalesInfo> salesInfoList = readWithBufferedReader.readData("src/main/resources/sales_data.csv");
+        List<SalesInfo> salesInfoList = readWithBufferedReader.readData(Constants.DATA_PATH);
         System.out.println(salesInfoList.size());
     }
 }
