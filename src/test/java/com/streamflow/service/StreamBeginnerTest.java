@@ -100,4 +100,13 @@ public class StreamBeginnerTest {
     public void exploreCreatingStreams() {
         streamBeginner.exploreCreatingStreams();
     }
+
+    @Test
+    public void exploreFlatMap() {
+        System.out.println(streamBeginner.exploreFlatMap(List.of(
+                List.of(1, 2, 3),
+                List.of(4, 5),
+                List.of(6, 7, 8, 9)
+        )));
+    }
 }

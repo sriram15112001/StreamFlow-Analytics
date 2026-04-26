@@ -71,4 +71,12 @@ public class StreamBeginner {
         integers1.stream().forEach(System.out::println);
         Arrays.stream(values).forEach(System.out::println);
     }
+
+    public List<Integer> exploreFlatMap(List<List<Integer>> list) {
+        return list.stream()
+                .flatMap(List::stream)
+                .toList();
+    }
+
+
 }
