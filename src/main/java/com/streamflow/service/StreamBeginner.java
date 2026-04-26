@@ -28,4 +28,11 @@ public class StreamBeginner {
                 .map(SalesInfo::getProduct)
                 .toList();
     }
+
+    public List<String> extractElectronicsCustomerIds() {
+        return salesInfoList.stream()
+                .filter(salesInfo -> salesInfo.getCategory().equalsIgnoreCase("Electronics"))
+                .map(SalesInfo::getCustomerId)
+                .toList();
+    }
 }

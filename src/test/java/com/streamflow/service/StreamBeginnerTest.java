@@ -37,6 +37,18 @@ public class StreamBeginnerTest {
             products.add(s.getProduct());
         }
         List<String> strings = streamBeginner.extractProductNames();
-        assertEquals(products, strings);
+        assertEquals(strings, products);
+    }
+
+    @Test
+    public void extractElectronicsCustomerIds() {
+        List<String> electronicsCustomerId = new ArrayList<>();
+        for (SalesInfo s: salesInfoList) {
+            if (s.getCategory().equalsIgnoreCase("Electronics")) {
+                electronicsCustomerId.add(s.getCustomerId());
+            }
+        }
+        List<String> strings = streamBeginner.extractElectronicsCustomerIds();
+        assertEquals(strings, electronicsCustomerId);
     }
 }
